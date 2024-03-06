@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" type="text/css" href="/css/home.css"/>
+<body>
+    <h1>TODO LIST</h1>
+    <!-- <button id="logout-button" onClick="location.href='http://localhost:3000/users/logout'">Logout</button> -->
+    <% data.forEach((element)=>{ %>
+            <div class="box">
+                <div class="detail">
+                    <h2><%= element.title %></h2>
+                <div class="modify">
+                    <button class="update" style=" width:20%" onclick="updatebtn('<%= element._id %>')">
+                        <img src="/assets/update.png" title="update"/>
+                    </button>
+                    <button class="del" style=" width:20%" onclick="del(`<%= element._id %>`)">
+                        <img src="/assets/delete.png" title="delete"/>
+                    </button>
+                </div>
+            </div>
+            <button class="arrow " onclick="getmoreinfo(this,`<%= element.createdAt %>`,`<%= element.description %>`)">
+                <img class="imgarrow" src="/assets/downarrow.png" title="more info"/>
+            </button>
+            <div class="moreinfo" style="display: none;">
+                <span  style="display: flex ;justify-content: center;"><span class="des" style="font-weight: 600; display:none">Description:</span> <%=element.description %></span>
+            </div>
+        </div>
+        <% }) %>
+        <button class="add" onClick="location.href='http://localhost:3000/'"><img src="/assets/add.png" title="add data"/></button>
+        <script src="/js/home.js"></script>
+</body>
+</html>

@@ -9,10 +9,10 @@ const {updateTodo} =require("../controller/updateTodo");
 const {deleteTodo} =require("../controller/deleteTodo");
 
 //define API routes
-router.post("/createTodo",createTodo);
-router.get("/getTodo",getTodo);
-router.get("/getTodo/:id",getTodoById);
-router.put("/updateTodo/:id",updateTodo);
-router.delete("/deleteTodo/:id",deleteTodo);
+router.post("/createtodo",createTodo);
+router.get("/gettodo",getTodo);
+router.get("/gettodo/:id",getTodoById);
+router.put("/updatetodo/:id",updateTodo);
+router.delete("/deletetodo/:id",deleteTodo);
 
 module.exports=router;

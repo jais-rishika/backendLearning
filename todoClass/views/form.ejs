@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/form.css"/>
+</head>
+<body>
+    <div class="card">
+
+        <h1>Enter the Task</h1>
+        <form method="post" action="/api/v1/createtodo">
+        <label>Title</label>
+        <input type="text" placeholder="title" name="title"/>
+        <br/><br/>
+        <label>Description</label>
+        <br/><br/>
+        <textarea rows="5" cols="50" name="description"></textarea>
+        <br/><br/>
+        <button type="submit" >SEND</button>
+        <br/><br/>
+    </form>
+    <button onClick="location.href='http://localhost:3000/api/v1/gettodo'">GET ALL TODOS</button>
+</div>
+
+        
+    </body>
+    </html>

@@ -8,7 +8,6 @@ const todoSchema=new mongoose.Schema(
         },
         description:{
             type:String,
-            required:true,
             maxLenght:50,
         },
         createdAt:{
@@ -20,7 +19,11 @@ const todoSchema=new mongoose.Schema(
             type:Date,
             required:true,
             default:Date.now(),
-        }
+        },
+        createdBy:{
+            type: mongoose.Schema.Types.ObjectId,
+            ref:"user"
+        },
     }
 );
 module.exports =mongoose.model("Todo",todoSchema);

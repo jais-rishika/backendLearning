@@ -1,12 +1,16 @@
+const express=require("express")
 const Todo=require("../Models/todo");
-
+const app=express();
+app.use(express.json());
 exports.updateTodo = async(req,res)=>{
     try{
         const id=req.params.id;
+        console.log("this is update form"+id);
         const {title,description} =req.body
         const todos=await Todo.findByIdAndUpdate({_id:id},
-           {title,description,updateAt:Date.now()},)
-        res.status(200)
+           {title,description,updatedAt:Date.now()},
+           {new:true})
+           res.status(200)
         .json(
             {
                 success:true,

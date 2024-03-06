@@ -1,17 +1,21 @@
 const Todo=require("../Models/todo");
-
+//
 exports.getTodo = async(req,res)=>{
     try{
-        const todos=await Todo.find({})
-        res.status(200)
-        .json(
-            {
-                success:true,
-                data:todos,
-                mssg:"Entire Todo data is fetched",
-            }
-        )
-    }
+        const todos=await Todo.find({createdBy: req.user._id})
+        // res.setHeader("X-myName", "Rishika");
+        // res.status(200)
+        // .json(
+        //     {
+        //         success:true,
+        //         data:todos,
+        //         mssg:"Entire Todo data is fetched",
+        //     }
+        // )
+        res.render("home",{
+            data:todos
+        })
+        }
     catch(err)
     {
         console.error(err);

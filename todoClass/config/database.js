@@ -4,9 +4,7 @@ const mongoose=require('mongoose');
 require("dotenv").config();
 
 const dbConnect=()=>{
-    mongoose.connect(process.env.Database_URL,{
-        UseNewUrlParser:true,
-        UseUnifiedTopology:true,
+    mongoose.connect("mongodb://127.0.0.1/todo",{
     })
     .then(()=>console.log("DB Connection Established"))
     .catch((error)=>{
